@@ -27,9 +27,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(response, { status: 400 })
     }
 
-    // Find user by email
-    const user = await db.users.findByEmail(email)
-    if (!user) {
+    // Find user by email (with password hash)
+    const userRow = await db.users.findByEmailWithPassword(email)
+    if (!userRow) {
       const response: ApiResponse = {
         success: false,
         error: "Invalid credentials",
@@ -37,11 +37,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(response, { status: 401 })
     }
 
-    // Verify password (placeholder implementation)
-    // For the default admin user, check against the stored password
-    const userWithPassword = user as any
-    const storedPassword = userWithPassword.password || `hashed_${password}`
-    const isValidPassword = await auth.comparePassword(password, storedPassword)
+    // Verify password against stored hash
+    const isValidPassword = await auth.comparePassword(password, userRow.password_hash)
     
     if (!isValidPassword) {
       const response: ApiResponse = {
@@ -52,17 +49,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate JWT token
-    const token = await auth.generateToken(user)
+    const token = await auth.generateToken(userRow)
 
     // Set HTTP-only cookie
     const response = NextResponse.json({
       success: true,
       data: {
         user: {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          role: user.role,
+          id: userRow.id,
+          email: userRow.email,
+          name: userRow.name,
+          role: userRow.role,
         },
       },
       message: "Login successful",

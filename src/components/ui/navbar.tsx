@@ -40,6 +40,9 @@ export function Navbar() {
             <Link href={ROUTES.PRODUCTS} className="text-foreground hover:text-primary transition-colors">
               Products
             </Link>
+            <Link href={ROUTES.JOIN} className="text-foreground hover:text-primary transition-colors">
+              Join ARVEA
+            </Link>
             {user?.role === "admin" && (
               <Link href={ROUTES.DASHBOARD} className="text-foreground hover:text-primary transition-colors">
                 Dashboard
@@ -96,6 +99,13 @@ export function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Products
+              </Link>
+              <Link
+                href={ROUTES.JOIN}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Join ARVEA
               </Link>
               {user?.role === "admin" && (
                 <Link

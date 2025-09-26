@@ -83,6 +83,14 @@ export const db = {
       return rows[0] || null
     },
 
+    async findByEmailWithPassword(email: string): Promise<(User & { password_hash: string }) | null> {
+      const { rows } = await query<any>(
+        'select id, email, name, role, password_hash, created_at as "createdAt", updated_at as "updatedAt" from users where email = $1',
+        [email]
+      )
+      return rows[0] || null
+    },
+
     async findById(id: string): Promise<User | null> {
       const { rows } = await query<User>(
         'select id, email, name, role, created_at as "createdAt", updated_at as "updatedAt" from users where id = $1',
@@ -93,10 +101,20 @@ export const db = {
 
     async create(data: Omit<User, "id" | "createdAt" | "updatedAt">): Promise<User> {
       const { rows } = await query<User>(
-        'insert into users (email, name, role) values ($1,$2,$3) returning id, email, name, role, created_at as "createdAt", updated_at as "updatedAt"',
-        [data.email, data.name, data.role]
+        'insert into users (email, name, role, password_hash) values ($1,$2,$3,$4) returning id, email, name, role, created_at as "createdAt", updated_at as "updatedAt"',
+        [
+          (data as any).email,
+          (data as any).name,
+          (data as any).role,
+          (data as any).passwordHash ?? '',
+        ]
       )
       return rows[0]
+    },
+
+    async count(): Promise<number> {
+      const { rows } = await query<{ count: string }>('select count(*)::text as count from users')
+      return Number.parseInt(rows[0]?.count || '0', 10)
     },
 
     async updateRole(id: string, role: User["role"]): Promise<User | null> {

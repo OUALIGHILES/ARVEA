@@ -18,13 +18,14 @@ export async function DELETE(request: Request, { params }: Params) {
 export async function PUT(request: Request, { params }: Params) {
   try {
     const body = await request.json()
-    if (body.role && !["admin", "user"].includes(body.role)) {
+    if (body.role && !["admin", "user", "customer"].includes(body.role)) {
       return NextResponse.json({ success: false, error: "Invalid role" }, { status: 400 })
     }
 
     let user: User | null = null
     if (body.role) {
-      user = await db.users.updateRole(params.id, body.role)
+      const role = body.role === "user" ? "customer" : body.role
+      user = await db.users.updateRole(params.id, role)
     }
     // Could add name/email updates similarly if needed
 

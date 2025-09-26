@@ -17,10 +17,11 @@ export async function POST(request: Request) {
     if (!body.email || !body.name || !body.role) {
       return NextResponse.json({ success: false, error: "Missing fields" }, { status: 400 })
     }
-    if (!["admin", "user"].includes(body.role)) {
+    if (!["admin", "user", "customer"].includes(body.role)) {
       return NextResponse.json({ success: false, error: "Invalid role" }, { status: 400 })
     }
-    const user = await db.users.create({ email: body.email, name: body.name, role: body.role })
+    const role = body.role === "user" ? "customer" : body.role
+    const user = await db.users.create({ email: body.email, name: body.name, role })
     const res: ApiResponse<User> = { success: true, data: user }
     return NextResponse.json(res, { status: 201 })
   } catch (e) {

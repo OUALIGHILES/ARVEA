@@ -54,11 +54,22 @@ export async function POST(request: NextRequest) {
     const isFirstUser = (await db.users.count()) === 0
     const isAdminEmail = email.toLowerCase().includes("admin")
     
-    const user = await db.users.create({
-      email,
-      name,
-      role: isFirstUser || isAdminEmail ? "admin" : "customer",
-    })
+    let user
+    try {
+      user = await db.users.create({
+        email,
+        name,
+        role: isFirstUser || isAdminEmail ? "admin" : "customer",
+        // pass via extended field understood by db layer
+        // @ts-expect-error - accepted by db layer
+        passwordHash: hashedPassword,
+      })
+    } catch (e: any) {
+      if (e?.code === "23505") {
+        return NextResponse.json({ success: false, error: "User already exists with this email" }, { status: 409 })
+      }
+      throw e
+    }
 
     // Generate JWT token
     const token = await auth.generateToken(user)

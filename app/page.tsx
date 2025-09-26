@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
+import JoinArveaSection from "@/components/JoinArveaSection"
 import { ProductList } from "@/modules/products/ui/product-list"
 import { ROUTES } from "@/lib/config"
 
@@ -32,7 +33,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <a
-                  href="https://instagram.com/arvea_official"
+                  href="https://www.instagram.com/arvea76572/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
@@ -180,6 +181,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Join ARVEA Recruitment Section */}
+      <JoinArveaSection />
+
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -194,7 +198,7 @@ export default function HomePage() {
               </Button>
             </Link>
             <a
-              href="https://instagram.com/arvea_official"
+              href="https://www.instagram.com/arvea76572/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

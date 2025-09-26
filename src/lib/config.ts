@@ -22,6 +22,7 @@ export const config = {
 export const ROUTES = {
   HOME: "/",
   PRODUCTS: "/products",
+  JOIN: "/join",
   PRODUCT_DETAIL: "/product",
   DASHBOARD: "/dashboard",
   LOGIN: "/login",
