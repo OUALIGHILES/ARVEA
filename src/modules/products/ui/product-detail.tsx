@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/Button"
 import { LoadingSpinner } from "@/components/ui/loading"
 import { useProduct } from "../hooks/use-products"
+import { ProductDescriptionTabs } from "@/components/ProductDescriptionTabs"
 
 interface ProductDetailProps {
   productId: string
@@ -73,10 +74,7 @@ Pouvez-vous me donner plus d'informations?`
 
         {/* Product Info */}
         <div className="space-y-6">
-          <div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">{product.name}</h1>
-            <p className="text-muted-foreground">{product.description}</p>
-          </div>
+          <ProductDescriptionTabs product={product} />
 
           <div className="flex items-center gap-4">
             <span className="text-3xl font-bold text-primary">{formatPrice(product.price)}</span>

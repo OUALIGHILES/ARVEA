@@ -9,7 +9,7 @@ import { useAuth } from "@/contexts/auth-context"
 import { useProducts } from "@/modules/products/hooks/use-products"
 import { DashboardStats } from "@/components/admin/dashboard-stats"
 import { ProductTable } from "@/components/admin/product-table"
-import { ProductForm } from "@/components/admin/product-form"
+import { MultilingualProductForm } from "@/components/admin/multilingual-product-form"
 import type { Product } from "@/types"
 
 type ViewMode = "list" | "create" | "edit"
@@ -142,7 +142,7 @@ export default function DashboardPage() {
                 {viewMode === "create" ? "Add a new product to your inventory" : "Update the product information"}
               </p>
             </div>
-            <ProductForm
+            <MultilingualProductForm
               product={editingProduct || undefined}
               onSuccess={handleFormSuccess}
               onCancel={handleFormCancel}

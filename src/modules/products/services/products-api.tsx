@@ -21,6 +21,13 @@ export interface CreateProductData {
   inStock: boolean
   stockQuantity: number
   instagramPostId?: string
+  // Multilingual fields
+  name_ar?: string
+  name_fr?: string
+  name_en?: string
+  description_ar?: string
+  description_fr?: string
+  description_en?: string
 }
 
 export async function fetchProducts(query: ProductsQuery = {}): Promise<Product[]> {

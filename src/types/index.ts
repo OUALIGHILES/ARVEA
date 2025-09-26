@@ -21,6 +21,13 @@ export interface Product {
   instagramPostId?: string
   createdAt: Date
   updatedAt: Date
+  // Multilingual fields
+  name_ar?: string
+  name_fr?: string
+  name_en?: string
+  description_ar?: string
+  description_fr?: string
+  description_en?: string
 }
 
 
