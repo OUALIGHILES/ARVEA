@@ -30,7 +30,7 @@ export default function DashboardPage() {
   if (authLoading) {
     return <LoadingPage />
   }
-
+//yes
   if (!user || user.role !== "admin") {
     return (
       <div className="min-h-screen flex items-center justify-center">

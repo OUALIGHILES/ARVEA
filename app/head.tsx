@@ -42,12 +42,12 @@ export default function Head() {
             "@type": "Store",
             name: "ARVEA",
             url: siteUrl,
-            logo: `${siteUrl}/logo.png`,
+            logo: `${siteUrl}/logo.svg`,
             sameAs: ["https://www.instagram.com/arvea76572/"],
             contactPoint: [
               {
                 "@type": "ContactPoint",
-                telephone: "+213XXXXXXXXXX",
+                telephone: " +213660839370",
                 contactType: "customer service",
                 areaServed: "DZ",
               },
