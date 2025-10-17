@@ -24,7 +24,7 @@ const messages: Record<LanguageCode, { title: string; body: string; dir?: "rtl" 
 }
 
 const instagramUrl = "https://www.instagram.com/arvea76572/"
-const whatsappUrl = "https://wa.me/212660839370"
+const whatsappUrl = "https://wa.me/213660839370"
 
 export default function JoinArveaSection() {
   const [lang, setLang] = useState<LanguageCode>("fr")

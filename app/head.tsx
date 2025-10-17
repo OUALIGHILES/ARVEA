@@ -47,7 +47,7 @@ export default function Head() {
             contactPoint: [
               {
                 "@type": "ContactPoint",
-                telephone: "+213XXXXXXXXXX",
+                telephone: " +213660839370",
                 contactType: "customer service",
                 areaServed: "DZ",
               },

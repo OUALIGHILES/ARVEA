@@ -33,7 +33,7 @@ export function ProductDetail({ productId }: ProductDetailProps) {
 
 Pouvez-vous me donner plus d'informations?`
     
-    const whatsappUrl = `https://wa.me/212660839370?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/213660839370?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
 
