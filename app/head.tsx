@@ -42,7 +42,7 @@ export default function Head() {
             "@type": "Store",
             name: "ARVEA",
             url: siteUrl,
-            logo: `${siteUrl}/logo.png`,
+            logo: `${siteUrl}/logo.svg`,
             sameAs: ["https://www.instagram.com/arvea76572/"],
             contactPoint: [
               {
