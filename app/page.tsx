@@ -38,7 +38,7 @@ export default function HomePage() {
                 </Link>
 
                 <a
-                  href="https://www.instagram.com/arvea76572/"
+                  href="https://www.instagram.com/areva.cosmetics/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
@@ -181,7 +181,7 @@ export default function HomePage() {
               </Button>
             </Link>
             <a
-              href="https://www.instagram.com/arvea76572/"
+              href="https://www.instagram.com/areva.cosmetics/"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-const instagramUrl = "https://www.instagram.com/arvea76572/"
+const instagramUrl = "https://www.instagram.com/areva.cosmetics/"
 const whatsappUrl = "https://wa.me/213660839370"
 
 type Lang = "ar" | "fr" | "en"

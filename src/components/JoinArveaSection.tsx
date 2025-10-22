@@ -23,7 +23,7 @@ const messages: Record<LanguageCode, { title: string; body: string; dir?: "rtl" 
   },
 }
 
-const instagramUrl = "https://www.instagram.com/arvea76572/"
+const instagramUrl = "https://www.instagram.com/areva.cosmetics/"
 const whatsappUrl = "https://wa.me/213660839370"
 
 export default function JoinArveaSection() {
